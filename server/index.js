@@ -10,9 +10,11 @@
 const express = require('express');
 const app = express();
 require('dotenv').config();
+const cors=require('cors');
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
+app.use(cors());
 
 const todoRoutes = require("./routes/todoRoute");
 app.use('/api/v1', todoRoutes);
@@ -27,3 +29,4 @@ dbConnect();
 app.get("/", (req, res) => {
     res.send(`<h1>This is the default route</h1>`);
 });
+
