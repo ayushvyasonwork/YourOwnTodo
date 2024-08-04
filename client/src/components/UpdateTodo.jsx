@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { API } from '../utils/api';
 
 const UpdateTodo = ({ todo, onUpdate }) => {
   const [title, setTitle] = useState(todo.title);
@@ -9,7 +10,7 @@ const UpdateTodo = ({ todo, onUpdate }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.put(`/api/v1/updateTodo/${todo._id}`, { title, description })
+    axios.put(`${API}/api/v1/updateTodo/${todo._id}`, { title, description })
       .then((response) => {
         console.log('Updated todo:', response.data);
         onUpdate(response.data);  // Call the onUpdate function to refresh the todo list

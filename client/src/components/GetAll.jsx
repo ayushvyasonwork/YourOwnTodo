@@ -50,7 +50,8 @@ const GetAll = () => {
             <p>{todo.title}</p>
             <p>{todo.description}</p>
             <button onClick={() => handleDelete(todo._id)}>Delete</button>
-            <UpdateTodo todo={todo} onUpdate={handleUpdate} 
+            <UpdateTodo todo={todo} onUpdate={handleUpdate} todoid={todo._id}
+            //here
             />
             {console.log(todo._id)}
           </div>
