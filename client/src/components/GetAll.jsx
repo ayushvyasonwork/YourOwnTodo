@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import UpdateTodo from './UpdateTodo';
+import { API } from '../utils/api';
 
 const GetAll = () => {
   const [todos, setTodos] = useState([]);
@@ -11,7 +12,7 @@ const GetAll = () => {
   }, []);
 
   const fetchTodos = () => {
-    axios.get("/api/v1/getTodo")
+    axios.get(`${API}/api/v1/getTodo`)
       .then((response) => {
         console.log('this is res data', response.data.data);
         setTodos(response.data.data);

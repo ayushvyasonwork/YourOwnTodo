@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { API } from '../utils/api';
 
 const CreateTodo = () => {
   const [title, setTitle] = useState('');
@@ -9,7 +10,7 @@ const CreateTodo = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    axios.post("/api/v1/createTodo", { title, description })
+    axios.post(`${API}/api/v1/createTodo`, { title, description })
       .then((response) => {
         console.log('Created todo:', response.data);
         setTitle('');
