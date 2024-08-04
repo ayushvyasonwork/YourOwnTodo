@@ -24,7 +24,7 @@ const GetAll = () => {
   };
 
   const handleDelete = (id) => {
-    axios.delete(`/api/v1/deleteTodo/${id}`)
+    axios.delete(`${API}/api/v1/deleteTodo/${id}`)
       .then((response) => {
         console.log('Deleted todo:', response.data);
         setTodos(todos.filter(todo => todo.id !== id));
